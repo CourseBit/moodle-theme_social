@@ -1,3 +1,5 @@
+**Currently being updated for Moodle 2.5 through Moodle 3.0**. Check back soon! :)
+
 Moodlebook is a three-column that emulates the look and feel of Facebook.
 
 It is based on the Decaf fluid-width theme for Moodle that was created by Lei Zhang. It improves usability by shifting setting blocks to top of the page, so called "Moodle awesome bar".
