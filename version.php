@@ -1,5 +1,5 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
+// This file is part of The Bootstrap Moodle theme
 //
 // Moodle is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -15,27 +15,18 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Version details
+ * Theme version info
  *
- * @package    format
- * @subpackage grid
- * @copyright  1999 onwards Martin Dougiamas (http://dougiamas.com)
+ * @package    theme_moodlebook
+ * @copyright  2015 CourseBit
+ * @author     Joseph Conradt | joseph.conradt@coursebit.net
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('MOODLE_INTERNAL') || die;
 
-// Plugin version (update when tables change)
-$plugin->version  = 2012010200;
-
-// Required Moodle version
-$plugin->requires = 2012120300.00; // 2.4 (Build: 20121203)
-
-// Full name of the plugin (used for diagnostics)
-$plugin->component = 'theme_moodlebook';
-
-// Software maturity level
+$plugin->version   = 2015110600;
+$plugin->requires  = 2015051100;
 $plugin->maturity  = MATURITY_STABLE;
-
-// User-friendly version number
-$plugin->release = '2.4.0.1';
+$plugin->release = '1.0';
+$plugin->component = 'theme_moodlebook';
