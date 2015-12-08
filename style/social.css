@@ -1,0 +1,30 @@
+body {
+    background-color:[[setting:body_bg]];
+}
+
+.navbar {
+    border-radius:0;
+    border:none;
+    border-bottom:1px solid [[setting:primary_color_dark]];
+}
+
+.navbar-inverse {
+    background-color:[[setting:primary_color]];
+}
+.navbar-inverse,
+.navbar-inverse a,
+.navbar-inverse .navbar-brand,
+.navbar-inverse .navbar-nav > li > a {
+    color:white;
+}
+
+.block .block-region {
+    margin-left:-16px;
+    margin-right:-16px;
+}
+
+.block .block-region .block {
+    border-radius:0;
+    -webkit-box-shadow:none;
+    box-shadow:none;
+}

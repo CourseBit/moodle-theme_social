@@ -31,6 +31,8 @@ if ('ltr' === get_string('thisdirection', 'langconfig')) {
 } else {
     $THEME->sheets = array('moodle-rtl');
 }
+$THEME->sheets[] = 'social';
+
 $THEME->enable_dock = false;
 $THEME->supportscssoptimisation = false;
 

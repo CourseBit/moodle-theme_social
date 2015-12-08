@@ -37,7 +37,11 @@ echo $OUTPUT->doctype() ?>
 
 <?php echo $OUTPUT->standard_top_of_body_html() ?>
 
+<?php if(theme_moodlebook_get_setting('inverse_navbar') == 'true'): ?>
+<nav role="navigation" class="navbar navbar-inverse">
+<?php else: ?>
 <nav role="navigation" class="navbar navbar-default">
+<?php endif; ?>
     <div class="container-fluid">
     <div class="navbar-header pull-left">
         <a class="navbar-brand" href="<?php echo $CFG->wwwroot;?>"><?php echo $SITE->shortname; ?></a>
@@ -57,30 +61,29 @@ echo $OUTPUT->doctype() ?>
             <li><?php echo $OUTPUT->page_heading_menu(); ?></li>
         </ul>
     </div>
-    
+
     </div>
 </nav>
-<header class="moodleheader">
-    <div class="container-fluid">
-    <a href="<?php echo $CFG->wwwroot ?>" class="logo"></a>
-    <?php echo $OUTPUT->page_heading(); ?>
-    </div>
-</header>
+
 
 <div id="page" class="container-fluid">
-    <header id="page-header" class="clearfix">
-        <div id="page-navbar" class="clearfix">
-            <nav class="breadcrumb-nav" role="navigation" aria-label="breadcrumb"><?php echo $OUTPUT->navbar(); ?></nav>
-            <div class="breadcrumb-button"><?php echo $OUTPUT->page_heading_button(); ?></div>
-        </div>
 
-        <div id="course-header">
-            <?php echo $OUTPUT->course_header(); ?>
-        </div>
-    </header>
 
     <div id="page-content" class="row">
-        <div id="region-main" class="<?php echo $regions['content']; ?>">
+        <div id="region-main" class="block <?php echo $regions['content']; ?>">
+            <header class="moodleheader">
+                <?php echo $OUTPUT->page_heading(); ?>
+            </header>
+            <header id="page-header" class="clearfix">
+                <div id="page-navbar" class="clearfix">
+                    <nav class="breadcrumb-nav" role="navigation" aria-label="breadcrumb"><?php echo $OUTPUT->navbar(); ?></nav>
+                    <div class="breadcrumb-button"><?php echo $OUTPUT->page_heading_button(); ?></div>
+                </div>
+
+                <div id="course-header">
+                    <?php echo $OUTPUT->course_header(); ?>
+                </div>
+            </header>
             <?php
             echo $OUTPUT->course_content_header();
 

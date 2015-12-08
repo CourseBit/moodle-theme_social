@@ -118,7 +118,7 @@ class theme_moodlebook_core_renderer extends core_renderer {
             $name = html_writer::tag('span', $name, array('class' => 'username hidden-sm'));
             $usermenu = $menu->add($name . $picture, new moodle_url('#'), fullname($user), 10001);
 
-  
+
             $usermenu->add(
                 $this->glyphicon('dashboard')  . get_string('myhome'),
                 new moodle_url('/my'),
@@ -143,7 +143,7 @@ class theme_moodlebook_core_renderer extends core_renderer {
                 new moodle_url('/grade/report/overview/index.php'),
                 get_string('grades')
             );
-        
+
             $usermenu->add(
                 $this->glyphicon('inbox') . get_string('messages', 'message'),
                 new moodle_url('/message/index.php'),
@@ -157,7 +157,7 @@ class theme_moodlebook_core_renderer extends core_renderer {
 
                 get_string('preferences')
             );
-        
+
             $usermenu->add(
                 '#######',
                 new moodle_url('/'),
@@ -282,5 +282,44 @@ class theme_moodlebook_core_renderer extends core_renderer {
             return html_writer::div($contents, 'alert alert-danger', $attributes);
         }
         return parent::box($contents, $classes, $id, $attributes);
+    }
+
+    public function social_block() {
+        global $CFG, $USER;
+        $userpicture = new user_picture($USER);
+        $user_image_url = $userpicture->get_url($this->page, $this);
+
+        ob_start();
+        require_once sprintf('%s/theme/moodlebook/template/social_block.phtml', $CFG->dirroot);
+        return ob_get_clean();
+    }
+
+    /**
+     * Output all the blocks in a particular region.
+     *
+     * @param string $region the name of a region on this page.
+     * @return string the HTML to be output.
+     */
+    public function blocks_for_region($region) {
+        $blockcontents = $this->page->blocks->get_content_for_region($region, $this);
+        $blocks = $this->page->blocks->get_blocks_for_region($region);
+        $lastblock = null;
+        $zones = array();
+        foreach ($blocks as $block) {
+            $zones[] = $block->title;
+        }
+        $output = '';
+
+        foreach ($blockcontents as $bc) {
+            if ($bc instanceof block_contents) {
+                $output .= $this->block($bc, $region);
+                $lastblock = $bc->title;
+            } else if ($bc instanceof block_move_target) {
+                $output .= $this->block_move_target($bc, $zones, $lastblock, $region);
+            } else {
+                throw new coding_exception('Unexpected type of thing (' . get_class($bc) . ') found in list of block contents.');
+            }
+        }
+        return $this->social_block() . $output;
     }
 }
