@@ -69,4 +69,22 @@ $setting = new admin_setting_configcheckbox($name, $title, $description, $defaul
 $setting->set_updatedcallback('theme_reset_all_caches');
 $temp->add($setting);
 
+$name = 'theme_moodlebook/footer_bg_color';
+$title = get_string('setting:footer_bg_color', 'theme_moodlebook');
+$description = get_string('setting:footer_bg_color:desc', 'theme_moodlebook');
+$default = '#333333';
+$previewconfig = null;
+$setting = new admin_setting_configcolourpicker($name, $title, $description, $default, $previewconfig);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$temp->add($setting);
+
+$name = 'theme_moodlebook/footer_color';
+$title = get_string('setting:footer_color', 'theme_moodlebook');
+$description = get_string('setting:footer_color:desc', 'theme_moodlebook');
+$default = '#ffffff';
+$previewconfig = null;
+$setting = new admin_setting_configcolourpicker($name, $title, $description, $default, $previewconfig);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$temp->add($setting);
+
 $ADMIN->add('theme_moodlebook', $temp);

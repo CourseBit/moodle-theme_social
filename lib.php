@@ -106,7 +106,10 @@ function theme_moodlebook_process_css($css, theme_config $theme)
     $settings = array(
         'body_bg' => '#f5f8fa',
         'primary_color' => '#3097d1',
-        'primary_color_dark' => theme_moodlebook_adjust_color('#3097d1', -50)
+        'primary_color_light' => theme_moodlebook_adjust_color('#3097d1', 50),
+        'primary_color_dark' => theme_moodlebook_adjust_color('#3097d1', -50),
+        'footer_bg_color' => '#333333',
+        'footer_color' => '#ffffff'
     );
 
     foreach($settings as $key => $setting) {

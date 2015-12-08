@@ -56,6 +56,14 @@ echo $OUTPUT->doctype() ?>
         </button>
     </div>
     <div id="moodle-navbar" class="navbar-collapse collapse navbar-right">
+        <form class="navbar-form navbar-left" role="search">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search...">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button"><i class="glyphicon glyphicon-search"></i></button>
+                </span>
+            </div><!-- /input-group -->
+        </form>
         <?php echo $OUTPUT->custom_menu(); ?>
         <ul class="nav pull-right">
             <li><?php echo $OUTPUT->page_heading_menu(); ?></li>
@@ -102,18 +110,17 @@ echo $OUTPUT->doctype() ?>
         }?>
     </div>
 
-    <footer id="page-footer">
-        <div id="course-footer"><?php echo $OUTPUT->course_footer(); ?></div>
-        <p class="helplink"><?php echo $OUTPUT->page_doc_link(); ?></p>
-        <?php
-        echo $OUTPUT->login_info();
-        echo $OUTPUT->home_link();
-        echo $OUTPUT->standard_footer_html();
-        ?>
-    </footer>
-
     <?php echo $OUTPUT->standard_end_of_body_html() ?>
 
 </div>
+<footer id="page-footer">
+    <div id="course-footer"><?php echo $OUTPUT->course_footer(); ?></div>
+    <p class="helplink"><?php echo $OUTPUT->page_doc_link(); ?></p>
+    <?php
+    echo $OUTPUT->login_info();
+    echo $OUTPUT->home_link();
+    echo $OUTPUT->standard_footer_html();
+    ?>
+</footer>
 </body>
 </html>
